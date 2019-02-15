@@ -1,35 +1,61 @@
 <?php
 
+/* @var $this \yii\web\View */
+/* @var $content string */
 /* @var $this yii\web\View */
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model \common\models\LoginForm */
 
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
+use backend\assets\AppAsset;
+$this->title = '登陆';
 
-$this->title = 'Login';
-$this->params['breadcrumbs'][] = $this->title;
+AppAsset::register($this);
 ?>
-<div class="site-login">
-    <h1><?= Html::encode($this->title) ?></h1>
+<?php $this->beginPage() ?>
+<!DOCTYPE html>
+<html lang="<?= Yii::$app->language ?>">
+<head>
+    <meta charset="<?= Yii::$app->charset ?>">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <?php $this->registerCsrfMetaTags() ?>
+    <title><?= Html::encode($this->title) ?></title>
+    <?php $this->head() ?>
+</head>
+<body class="templatemo-bg-gray">
+<?php $this->beginBody() ?>
 
-    <p>Please fill out the following fields to login:</p>
 
-    <div class="row">
-        <div class="col-lg-5">
-            <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
+<div class="container">
+    <div class="col-md-12">
+        <h3 class="margin-bottom-15">登陆</h3>
 
-                <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
+        <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
 
-                <?= $form->field($model, 'password')->passwordInput() ?>
+        <?= $form->field($model, 'username')->textInput(['autofocus' => true, 'placeholder' => '用户名'])->label(false) ?>
 
-                <?= $form->field($model, 'rememberMe')->checkbox() ?>
+        <?= $form->field($model, 'password')->passwordInput(['placeholder' => '密码'])->label(false) ?>
 
-                <div class="form-group">
-                    <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
-                </div>
+        <?= $form->field($model, 'rememberMe')->checkbox()->label("保持登陆状态") ?>
 
-            <?php ActiveForm::end(); ?>
+        <div class="form-group">
+            <?= Html::submitButton('登陆', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
         </div>
+
+        <?php ActiveForm::end(); ?>
     </div>
 </div>
+
+<?php $this->endBody() ?>
+</body>
+</html>
+<?php $this->endPage() ?>
+
+
+
+
+
+
+
