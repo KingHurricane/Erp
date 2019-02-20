@@ -97,15 +97,15 @@
                         <i class="fa fa-cog"></i><span>系统设置</span><i class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
-                        <li onclick="makecss(this)" data-id="index_System">
+                        <li  data-id="index_System">
                             <a href="/index.php/Admin/System/index" target="rightContent"><i class="fa fa-circle-o"></i>网站设置</a>
-                        </li><li onclick="makecss(this)" data-id="linkList_Article">
+                        </li><li  data-id="linkList_Article">
                             <a href="/index.php/Admin/Article/linkList" target="rightContent"><i class="fa fa-circle-o"></i>友情链接</a>
-                        </li><li onclick="makecss(this)" data-id="navigationList_System">
+                        </li><li  data-id="navigationList_System">
                             <a href="/index.php/Admin/System/navigationList" target="rightContent"><i class="fa fa-circle-o"></i>自定义导航</a>
-                        </li><li onclick="makecss(this)" data-id="region_Tools">
+                        </li><li  data-id="region_Tools">
                             <a href="/index.php/Admin/Tools/region" target="rightContent"><i class="fa fa-circle-o"></i>区域管理</a>
-                        </li><li onclick="makecss(this)" data-id="right_list_System">
+                        </li><li  data-id="right_list_System">
                             <a href="/index.php/Admin/System/right_list" target="rightContent"><i class="fa fa-circle-o"></i>权限资源列表</a>
                         </li>             </ul>
                 </li><li class="treeview">
@@ -113,67 +113,55 @@
                         <i class="fa fa-gears"></i><span>权限管理</span><i class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
-                        <li onclick="makecss(this)" data-id="index_Admin">
+                        <li  data-id="index_Admin">
                             <a href="/index.php/Admin/Admin/index" target="rightContent"><i class="fa fa-circle-o"></i>管理员列表</a>
-                        </li><li onclick="makecss(this)" data-id="role_Admin">
+                        </li><li  data-id="role_Admin">
                             <a href="/index.php/Admin/Admin/role" target="rightContent"><i class="fa fa-circle-o"></i>角色管理</a>
-                        </li><li onclick="makecss(this)" data-id="supplier_Admin">
+                        </li><li  data-id="supplier_Admin">
                             <a href="/index.php/Admin/Admin/supplier" target="rightContent"><i class="fa fa-circle-o"></i>供应商管理</a>
-                        </li><li onclick="makecss(this)" data-id="log_Admin">
+                        </li><li  data-id="log_Admin">
                             <a href="/index.php/Admin/Admin/log" target="rightContent"><i class="fa fa-circle-o"></i>管理员日志</a>
                         </li>             </ul>
-                </li><li class="treeview">
+                </li>
+                <li class="treeview">
                     <a href="javascript:void(0)">
-                        <i class="fa fa-user"></i><span>会员管理</span><i class="fa fa-angle-left pull-right"></i>
+                        <i class="fa fa-user"></i><span>员工管理</span><i class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
-                        <li onclick="makecss(this)" data-id="index_User">
-                            <a href="/index.php/Admin/User/index" target="rightContent"><i class="fa fa-circle-o"></i>会员列表</a>
-                        </li><li onclick="makecss(this)" data-id="levelList_User">
-                            <a href="/index.php/Admin/User/levelList" target="rightContent"><i class="fa fa-circle-o"></i>会员等级</a>
-                        </li><li onclick="makecss(this)" data-id="recharge_User">
-                            <a href="/index.php/Admin/User/recharge" target="rightContent"><i class="fa fa-circle-o"></i>充值记录</a>
-                        </li><li onclick="makecss(this)" data-id="withdrawals_User">
-                            <a href="/index.php/Admin/User/withdrawals" target="rightContent"><i class="fa fa-circle-o"></i>提现申请</a>
-                        </li><li onclick="makecss(this)" data-id="remittance_User">
-                            <a href="/index.php/Admin/User/remittance" target="rightContent"><i class="fa fa-circle-o"></i>汇款记录</a>
-                        </li>             </ul>
-                </li><li class="treeview">
+                        <li  data-id="index_User">
+                            <a href="<?=\yii\helpers\Url::to(["emp/index"])?>" target="rightContent"><i class="fa fa-circle-o"></i>会员列表</a>
+                        </li>
+                        <li  data-id="levelList_User">
+                            <a href="<?=\yii\helpers\Url::to(["emp/create"])?>" target="rightContent"><i class="fa fa-circle-o"></i>创建会员</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="treeview">
                     <a href="javascript:void(0)">
-                        <i class="fa fa-book"></i><span>商品管理</span><i class="fa fa-angle-left pull-right"></i>
+                        <i class="fa fa-book"></i><span>部门管理</span><i class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
-                        <li onclick="makecss(this)" data-id="categoryList_Goods">
-                            <a href="/index.php/Admin/Goods/categoryList" target="rightContent"><i class="fa fa-circle-o"></i>商品分类</a>
-                        </li><li onclick="makecss(this)" data-id="goodsList_Goods">
-                            <a href="/index.php/Admin/Goods/goodsList" target="rightContent"><i class="fa fa-circle-o"></i>商品列表</a>
-                        </li><li onclick="makecss(this)" data-id="goodsTypeList_Goods">
-                            <a href="/index.php/Admin/Goods/goodsTypeList" target="rightContent"><i class="fa fa-circle-o"></i>商品类型</a>
-                        </li><li onclick="makecss(this)" data-id="specList_Goods">
-                            <a href="/index.php/Admin/Goods/specList" target="rightContent"><i class="fa fa-circle-o"></i>商品规格</a>
-                        </li><li onclick="makecss(this)" data-id="goodsAttributeList_Goods">
-                            <a href="/index.php/Admin/Goods/goodsAttributeList" target="rightContent"><i class="fa fa-circle-o"></i>商品属性</a>
-                        </li><li onclick="makecss(this)" data-id="brandList_Goods">
-                            <a href="/index.php/Admin/Goods/brandList" target="rightContent"><i class="fa fa-circle-o"></i>品牌列表</a>
-                        </li><li onclick="makecss(this)" data-id="index_Comment">
-                            <a href="/index.php/Admin/Comment/index" target="rightContent"><i class="fa fa-circle-o"></i>商品评论</a>
-                        </li><li onclick="makecss(this)" data-id="ask_list_Comment">
-                            <a href="/index.php/Admin/Comment/ask_list" target="rightContent"><i class="fa fa-circle-o"></i>商品咨询</a>
-                        </li>             </ul>
+                        <li>
+                            <a href="<?=\yii\helpers\Url::to(["dep/index"])?>" target="rightContent"><i class="fa fa-circle-o"></i>部门列表</a>
+                        </li>
+                        <li>
+                            <a href="<?=\yii\helpers\Url::to(["dep/create"])?>" target="rightContent"><i class="fa fa-circle-o"></i>新建部门</a>
+                        </li>
+                    </ul>
                 </li><li class="treeview">
                     <a href="javascript:void(0)">
                         <i class="fa fa-money"></i><span>订单管理</span><i class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
-                        <li onclick="makecss(this)" data-id="index_Order">
+                        <li  data-id="index_Order">
                             <a href="/index.php/Admin/Order/index" target="rightContent"><i class="fa fa-circle-o"></i>订单列表</a>
-                        </li><li onclick="makecss(this)" data-id="delivery_list_Order">
+                        </li><li  data-id="delivery_list_Order">
                             <a href="/index.php/Admin/Order/delivery_list" target="rightContent"><i class="fa fa-circle-o"></i>发货单</a>
-                        </li><li onclick="makecss(this)" data-id="return_list_Order">
+                        </li><li  data-id="return_list_Order">
                             <a href="/index.php/Admin/Order/return_list" target="rightContent"><i class="fa fa-circle-o"></i>退货单</a>
-                        </li><li onclick="makecss(this)" data-id="add_order_Order">
+                        </li><li  data-id="add_order_Order">
                             <a href="/index.php/Admin/Order/add_order" target="rightContent"><i class="fa fa-circle-o"></i>添加订单</a>
-                        </li><li onclick="makecss(this)" data-id="order_log_Order">
+                        </li><li  data-id="order_log_Order">
                             <a href="/index.php/Admin/Order/order_log" target="rightContent"><i class="fa fa-circle-o"></i>订单日志</a>
                         </li>             </ul>
                 </li><li class="treeview">
@@ -181,15 +169,15 @@
                         <i class="fa fa-bell"></i><span>促销管理</span><i class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
-                        <li onclick="makecss(this)" data-id="flash_sale_Promotion">
+                        <li  data-id="flash_sale_Promotion">
                             <a href="/index.php/Admin/Promotion/flash_sale" target="rightContent"><i class="fa fa-circle-o"></i>抢购管理</a>
-                        </li><li onclick="makecss(this)" data-id="group_buy_list_Promotion">
+                        </li><li  data-id="group_buy_list_Promotion">
                             <a href="/index.php/Admin/Promotion/group_buy_list" target="rightContent"><i class="fa fa-circle-o"></i>团购管理</a>
-                        </li><li onclick="makecss(this)" data-id="prom_goods_list_Promotion">
+                        </li><li  data-id="prom_goods_list_Promotion">
                             <a href="/index.php/Admin/Promotion/prom_goods_list" target="rightContent"><i class="fa fa-circle-o"></i>商品促销</a>
-                        </li><li onclick="makecss(this)" data-id="prom_order_list_Promotion">
+                        </li><li  data-id="prom_order_list_Promotion">
                             <a href="/index.php/Admin/Promotion/prom_order_list" target="rightContent"><i class="fa fa-circle-o"></i>订单促销</a>
-                        </li><li onclick="makecss(this)" data-id="index_Coupon">
+                        </li><li  data-id="index_Coupon">
                             <a href="/index.php/Admin/Coupon/index" target="rightContent"><i class="fa fa-circle-o"></i>代金券管理</a>
                         </li>             </ul>
                 </li><li class="treeview">
@@ -197,9 +185,9 @@
                         <i class="fa fa-flag"></i><span>广告管理</span><i class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
-                        <li onclick="makecss(this)" data-id="adList_Ad">
+                        <li  data-id="adList_Ad">
                             <a href="/index.php/Admin/Ad/adList" target="rightContent"><i class="fa fa-circle-o"></i>广告列表</a>
-                        </li><li onclick="makecss(this)" data-id="positionList_Ad">
+                        </li><li  data-id="positionList_Ad">
                             <a href="/index.php/Admin/Ad/positionList" target="rightContent"><i class="fa fa-circle-o"></i>广告位置</a>
                         </li>             </ul>
                 </li><li class="treeview">
@@ -207,11 +195,11 @@
                         <i class="fa fa-comments"></i><span>内容管理</span><i class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
-                        <li onclick="makecss(this)" data-id="articleList_Article">
+                        <li  data-id="articleList_Article">
                             <a href="/index.php/Admin/Article/articleList" target="rightContent"><i class="fa fa-circle-o"></i>文章列表</a>
-                        </li><li onclick="makecss(this)" data-id="categoryList_Article">
+                        </li><li  data-id="categoryList_Article">
                             <a href="/index.php/Admin/Article/categoryList" target="rightContent"><i class="fa fa-circle-o"></i>文章分类</a>
-                        </li><li onclick="makecss(this)" data-id="topicList_Topic">
+                        </li><li  data-id="topicList_Topic">
                             <a href="/index.php/Admin/Topic/topicList" target="rightContent"><i class="fa fa-circle-o"></i>专题列表</a>
                         </li>             </ul>
                 </li><li class="treeview">
@@ -219,17 +207,17 @@
                         <i class="fa fa-weixin"></i><span>微信管理</span><i class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
-                        <li onclick="makecss(this)" data-id="index_Wechat">
+                        <li  data-id="index_Wechat">
                             <a href="/index.php/Admin/Wechat/index" target="rightContent"><i class="fa fa-circle-o"></i>公众号管理</a>
-                        </li><li onclick="makecss(this)" data-id="menu_Wechat">
+                        </li><li  data-id="menu_Wechat">
                             <a href="/index.php/Admin/Wechat/menu" target="rightContent"><i class="fa fa-circle-o"></i>微信菜单管理</a>
-                        </li><li onclick="makecss(this)" data-id="text_Wechat">
+                        </li><li  data-id="text_Wechat">
                             <a href="/index.php/Admin/Wechat/text" target="rightContent"><i class="fa fa-circle-o"></i>文本回复</a>
-                        </li><li onclick="makecss(this)" data-id="img_Wechat">
+                        </li><li  data-id="img_Wechat">
                             <a href="/index.php/Admin/Wechat/img" target="rightContent"><i class="fa fa-circle-o"></i>图文回复</a>
-                        </li><li onclick="makecss(this)" data-id="nes_Wechat">
+                        </li><li  data-id="nes_Wechat">
                             <a href="/index.php/Admin/Wechat/nes" target="rightContent"><i class="fa fa-circle-o"></i>组合回复</a>
-                        </li><li onclick="makecss(this)" data-id="news_Wechat">
+                        </li><li  data-id="news_Wechat">
                             <a href="/index.php/Admin/Wechat/news" target="rightContent"><i class="fa fa-circle-o"></i>消息推送</a>
                         </li>             </ul>
                 </li><li class="treeview">
@@ -237,9 +225,9 @@
                         <i class="fa fa-adjust"></i><span>模板管理</span><i class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
-                        <li onclick="makecss(this)" data-id="templateList?t=pc_Template">
+                        <li  data-id="templateList?t=pc_Template">
                             <a href="/index.php/Admin/Template/templateList/t/pc" target="rightContent"><i class="fa fa-circle-o"></i>PC端模板</a>
-                        </li><li onclick="makecss(this)" data-id="templateList?t=mobile_Template">
+                        </li><li  data-id="templateList?t=mobile_Template">
                             <a href="/index.php/Admin/Template/templateList/t/mobile" target="rightContent"><i class="fa fa-circle-o"></i>手机端模板</a>
                         </li>             </ul>
                 </li><li class="treeview">
@@ -247,11 +235,11 @@
                         <i class="fa fa-plug"></i><span>插件工具</span><i class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
-                        <li onclick="makecss(this)" data-id="index_Plugin">
+                        <li  data-id="index_Plugin">
                             <a href="/index.php/Admin/Plugin/index" target="rightContent"><i class="fa fa-circle-o"></i>插件列表</a>
-                        </li><li onclick="makecss(this)" data-id="index_Tools">
+                        </li><li  data-id="index_Tools">
                             <a href="/index.php/Admin/Tools/index" target="rightContent"><i class="fa fa-circle-o"></i>数据备份</a>
-                        </li><li onclick="makecss(this)" data-id="restore_Tools">
+                        </li><li  data-id="restore_Tools">
                             <a href="/index.php/Admin/Tools/restore" target="rightContent"><i class="fa fa-circle-o"></i>数据还原</a>
                         </li>             </ul>
                 </li><li class="treeview">
@@ -259,17 +247,17 @@
                         <i class="fa fa-signal"></i><span>统计报表</span><i class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
-                        <li onclick="makecss(this)" data-id="index_Report">
+                        <li  data-id="index_Report">
                             <a href="/index.php/Admin/Report/index" target="rightContent"><i class="fa fa-circle-o"></i>销售概况</a>
-                        </li><li onclick="makecss(this)" data-id="saleTop_Report">
+                        </li><li  data-id="saleTop_Report">
                             <a href="/index.php/Admin/Report/saleTop" target="rightContent"><i class="fa fa-circle-o"></i>销售排行</a>
-                        </li><li onclick="makecss(this)" data-id="userTop_Report">
+                        </li><li  data-id="userTop_Report">
                             <a href="/index.php/Admin/Report/userTop" target="rightContent"><i class="fa fa-circle-o"></i>会员排行</a>
-                        </li><li onclick="makecss(this)" data-id="saleList_Report">
+                        </li><li  data-id="saleList_Report">
                             <a href="/index.php/Admin/Report/saleList" target="rightContent"><i class="fa fa-circle-o"></i>销售明细</a>
-                        </li><li onclick="makecss(this)" data-id="user_Report">
+                        </li><li  data-id="user_Report">
                             <a href="/index.php/Admin/Report/user" target="rightContent"><i class="fa fa-circle-o"></i>会员统计</a>
-                        </li><li onclick="makecss(this)" data-id="finance_Report">
+                        </li><li  data-id="finance_Report">
                             <a href="/index.php/Admin/Report/finance" target="rightContent"><i class="fa fa-circle-o"></i>财务统计</a>
                         </li>             </ul>
                 </li><li class="treeview">
@@ -277,9 +265,9 @@
                         <i class="fa fa-anchor"></i><span>自提点管理</span><i class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
-                        <li onclick="makecss(this)" data-id="index_Pickup">
+                        <li  data-id="index_Pickup">
                             <a href="/index.php/Admin/Pickup/index" target="rightContent"><i class="fa fa-circle-o"></i>自提点列表</a>
-                        </li><li onclick="makecss(this)" data-id="add_Pickup">
+                        </li><li  data-id="add_Pickup">
                             <a href="/index.php/Admin/Pickup/add" target="rightContent"><i class="fa fa-circle-o"></i>添加自提点</a>
                         </li>             </ul>
                 </li>

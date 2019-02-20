@@ -5,6 +5,7 @@ use Yii;
 use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
+use yii\helpers\Html;
 use yii\web\IdentityInterface;
 
 /**
@@ -19,9 +20,9 @@ use yii\web\IdentityInterface;
  * @property integer $status
  * @property integer $created_at
  * @property integer $updated_at
- * @property string $password write-only password
+ * @property '$password write-only password
  */
-class Admin extends ActiveRecord implements IdentityInterface
+class Emp extends ActiveRecord implements IdentityInterface
 {
     const STATUS_DELETED = 0;
     const STATUS_ACTIVE = 10;
@@ -32,7 +33,7 @@ class Admin extends ActiveRecord implements IdentityInterface
      */
     public static function tableName()
     {
-        return '{{%admin}}';
+        return '{{%emp}}';
     }
 
     /**
@@ -185,5 +186,20 @@ class Admin extends ActiveRecord implements IdentityInterface
     public function removePasswordResetToken()
     {
         $this->password_reset_token = null;
+    }
+
+    public function attributeLabels()
+    {
+        return [
+
+        'username' => '用户名',
+        'email' => '邮箱',
+        'name' => '真实姓名',
+        'gender' => '性别',
+        'tele' => '电话号码',
+        'address' => '地址',
+        'birthday' => '生日',
+        'dep_id' => '部门'
+        ];
     }
 }

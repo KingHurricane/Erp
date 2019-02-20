@@ -5,6 +5,7 @@ use Yii;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use backend\models\LoginForm;
+use backend\models\SignupForm;
 
 /**
  * Site controller
@@ -35,6 +36,9 @@ class SiteController extends Controller
             'error' => [
                 'class' => 'yii\web\ErrorAction',
             ],
+            'captcha' => [
+                'class' => 'yii\captcha\CaptchaAction',
+            ],
         ];
     }
 
@@ -47,6 +51,7 @@ class SiteController extends Controller
     {
         return $this->renderPartial('index');
     }
+
 
     /**
      * Login action.

@@ -8,6 +8,7 @@ $params = array_merge(
 
 return [
     'id' => 'app-backend',
+    'language' => 'zh_CN',
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
@@ -17,7 +18,7 @@ return [
             'csrfParam' => md5('_csrf-backend'),
         ],
         'user' => [
-            'identityClass' => 'backend\models\Admin',
+            'identityClass' => 'backend\models\Emp',
             'enableAutoLogin' => true,
             'identityCookie' => ['name' => md5('_identity-backend'), 'httpOnly' => true],
         ],

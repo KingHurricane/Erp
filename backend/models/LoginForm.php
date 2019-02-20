@@ -11,6 +11,7 @@ class LoginForm extends Model
 {
     public $username;
     public $password;
+    public $verificationCode;
     public $rememberMe = true;
 
     private $_user;
@@ -22,12 +23,14 @@ class LoginForm extends Model
     public function rules()
     {
         return [
-            // username and password are both required
-            [['username', 'password'], 'required'],
+            // username, captcha and password are both required
+            [['username', 'password', 'captcha'], 'required', 'message' => '必填项'],
+            //vilidate captcha
+            ['verificationCode', 'captcha', 'message' => '验证码错误'],
             // rememberMe must be a boolean value
             ['rememberMe', 'boolean'],
             // password is validated by validatePassword()
-            ['password', 'validatePassword'],
+            ['password', 'validatePassword', 'message' => '密码错误'],
         ];
     }
 
@@ -70,7 +73,7 @@ class LoginForm extends Model
     protected function getUser()
     {
         if ($this->_user === null) {
-            $this->_user = Admin::findByUsername($this->username);
+            $this->_user = Emp::findByUsername($this->username);
         }
 
         return $this->_user;

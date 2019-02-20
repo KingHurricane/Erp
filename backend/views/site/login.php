@@ -38,6 +38,10 @@ AppAsset::register($this);
 
         <?= $form->field($model, 'password')->passwordInput(['placeholder' => '密码'])->label(false) ?>
 
+        <?= $form->field($model, 'verificationCode')->label(false)->widget(\yii\captcha\Captcha::classname(), [
+            // configure additional widget properties here
+            'options' => ['class' => 'form-control','placeholder' => '验证码' ]]) ?>
+
         <?= $form->field($model, 'rememberMe')->checkbox()->label("保持登陆状态") ?>
 
         <div class="form-group">
