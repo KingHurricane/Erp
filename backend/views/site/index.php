@@ -110,18 +110,16 @@
                         </li>             </ul>
                 </li><li class="treeview">
                     <a href="javascript:void(0)">
-                        <i class="fa fa-gears"></i><span>权限管理</span><i class="fa fa-angle-left pull-right"></i>
+                        <i class="fa fa-gears"></i><span>权限中心</span><i class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
-                        <li  data-id="index_Admin">
-                            <a href="/index.php/Admin/Admin/index" target="rightContent"><i class="fa fa-circle-o"></i>管理员列表</a>
-                        </li><li  data-id="role_Admin">
-                            <a href="/index.php/Admin/Admin/role" target="rightContent"><i class="fa fa-circle-o"></i>角色管理</a>
-                        </li><li  data-id="supplier_Admin">
-                            <a href="/index.php/Admin/Admin/supplier" target="rightContent"><i class="fa fa-circle-o"></i>供应商管理</a>
-                        </li><li  data-id="log_Admin">
-                            <a href="/index.php/Admin/Admin/log" target="rightContent"><i class="fa fa-circle-o"></i>管理员日志</a>
-                        </li>             </ul>
+                        <li  data-id="role_Admin">
+                            <a href="<?=\yii\helpers\Url::to(["role/index"])?>" target="rightContent"><i class="fa fa-circle-o"></i>角色管理</a>
+                        </li>
+                        <li  data-id="supplier_Admin">
+                            <a href="<?=\yii\helpers\Url::to(["privilege/index"])?>" target="rightContent"><i class="fa fa-circle-o"></i>权限管理</a>
+                        </li>
+                    </ul>
                 </li>
                 <li class="treeview">
                     <a href="javascript:void(0)">

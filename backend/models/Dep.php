@@ -46,7 +46,7 @@ class Dep extends \yii\db\ActiveRecord
         ];
     }
 
-    public static function depArray(){
+    public static function depList(){
         $dep = Dep::find()->asArray()->all();
         return ArrayHelper::map($dep, 'id', 'name');
     }

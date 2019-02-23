@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel backend\models\EmpSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = '员工';
+$this->title = '员工列表';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="emp-index">
@@ -23,8 +23,6 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
             'id',
             [
                 'attribute' => 'username',
@@ -67,7 +65,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value' => function($model){
                     return \backend\models\Dep::findOne($model->dep_id)->name;
                 },
-                'filter' => \backend\models\Dep::depArray(),
+                'filter' => \backend\models\Dep::depList(),
                 'label' => '部门ID',
             ],
 

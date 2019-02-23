@@ -30,8 +30,10 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'birthday')->input('date')->label("生日")?>
 
-    <?= $form->field($model, 'dep_id')->radioList(\backend\models\Dep::depArray())->label("所属部门")?>
+    <?= $form->field($model, 'dep_id')->radioList(\backend\models\Dep::depList())->label("所属部门")?>
 
+    <label class="control-label">角色</label>
+    <?= Html::checkboxList('role',\backend\models\EmpRole::roleListByEmpID(Yii::$app->request->get('id')), \backend\models\Role::roleList())?>
     <div class="form-group">
         <?= Html::submitButton('提交', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
     </div>

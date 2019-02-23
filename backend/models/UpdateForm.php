@@ -90,8 +90,27 @@ class UpdateForm extends Model
         $user->birthday = $this->birthday;
         $user->dep_id = $this->dep_id;
 
+        $temp = [];
+        foreach(\Yii::$app->request->post('role') as $key => $value){
+            $temp[] = ['emp_id' => $user->id, 'role_id' => $value];
+        }
 
-        return $user->save() ? $user : null;
+
+        $transaction = \Yii::$app->db->beginTransaction();
+        try{
+            $user->save();
+            EmpRole::deleteAll(["emp_id" => $user->id]);
+            \Yii::$app->db->createCommand()->batchInsert('{{%emp_role}}', ['emp_id', 'role_id'], $temp)->execute();
+
+            $transaction->commit();
+            return $user;
+        }catch(\Exception $e) {
+            $transaction->rollBack();
+            return false;
+        } catch(\Throwable $e) {
+            $transaction->rollBack();
+            return false;
+        }
     }
 
 }

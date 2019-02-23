@@ -80,8 +80,26 @@ class SignupForm extends Model
         $user->birthday = $this->birthday;
         $user->dep_id = $this->dep_id;
 
-        
-        return $user->save() ? $user : null;
+        $transaction = \Yii::$app->db->beginTransaction();
+        try{
+            $user->save();
+
+            $temp = [];
+            foreach(\Yii::$app->request->post("role") as $key => $value){
+                $temp[] = ['emp_id' => $user->id, 'role_id' => $value];
+            }
+
+            \Yii::$app->db->createCommand()->batchInsert('{{%emp_role}}', ['emp_id', 'role_id'], $temp)->execute();
+//            var_dump($temp);exit();
+            $transaction->commit();
+            return $user;
+        }catch(\Exception $e) {
+            $transaction->rollBack();
+            return false;
+        } catch(\Throwable $e) {
+            $transaction->rollBack();
+            return false;
+        }
     }
 
     public function loadDbData($id){
@@ -98,26 +116,6 @@ class SignupForm extends Model
         $this->dep_id = $emp->dep_id;
     }
 
-    public function update()
-    {
-        if (!$this->validate()) {
-            return null;
-        }
 
-        $user = new Emp();
-        $user->username = $this->username;
-        $user->email = $this->email;
-        $user->setPassword($this->password);
-        $user->generateAuthKey();
-        $user->name = $this->name;
-        $user->gender = $this->gender;
-        $user->tele = $this->tele;
-        $user->address = $this->address;
-        $user->birthday = $this->birthday;
-        $user->dep_id = $this->dep_id;
-
-
-        return $user->save() ? $user : null;
-    }
 
 }

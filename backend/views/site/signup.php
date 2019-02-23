@@ -37,7 +37,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 <?= $form->field($model, 'birthday')->input('date')->label("生日")?>
 
-                <?= $form->field($model, 'dep_id')->inline(true)->radioList(\backend\models\Dep::depArray())->label("所属部门")?>
+                <?= $form->field($model, 'dep_id')->inline(true)->radioList(\backend\models\Dep::depList())->label("所属部门")?>
 
                 <div class="form-group">
                     <?= Html::submitButton('提交', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
