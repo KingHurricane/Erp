@@ -12,7 +12,7 @@ use yii\filters\VerbFilter;
 /**
  * DepController implements the CRUD actions for Dep model.
  */
-class DepController extends Controller
+class DepController extends BaseController
 {
     /**
      * {@inheritdoc}

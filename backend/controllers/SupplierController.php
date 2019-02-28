@@ -2,19 +2,17 @@
 
 namespace backend\controllers;
 
-use backend\models\UpdateForm;
 use Yii;
-use backend\models\SignupForm;
-use backend\models\Emp;
-use backend\models\EmpSearch;
+use backend\models\Supplier;
+use backend\controllers\SupplierSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * EmpController implements the CRUD actions for Emp model.
+ * SupplierController implements the CRUD actions for Supplier model.
  */
-class EmpController extends BaseController
+class SupplierController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -32,12 +30,12 @@ class EmpController extends BaseController
     }
 
     /**
-     * Lists all Emp models.
+     * Lists all Supplier models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new EmpSearch();
+        $searchModel = new SupplierSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -47,7 +45,7 @@ class EmpController extends BaseController
     }
 
     /**
-     * Displays a single Emp model.
+     * Displays a single Supplier model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -59,22 +57,18 @@ class EmpController extends BaseController
         ]);
     }
 
-
     /**
-     * Signs user up.
-     *
+     * Creates a new Supplier model.
+     * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new SignupForm();
+        $pinyin = new \Overtrue\Pinyin\Pinyin();
+        $model = new Supplier();
 
-        if ($model->load(Yii::$app->request->post())) {
-            if ($user = $model->signup()) {
-                if (Yii::$app->getUser()->login($user)) {
-                    return $this->redirect(["emp/index"]);
-                }
-            }
+        if ($model->load(Yii::$app->request->post()) && $model->add()) {
+            return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('create', [
@@ -83,7 +77,7 @@ class EmpController extends BaseController
     }
 
     /**
-     * Updates an existing Emp model.
+     * Updates an existing Supplier model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -91,15 +85,10 @@ class EmpController extends BaseController
      */
     public function actionUpdate($id)
     {
-        $model = new UpdateForm();
-        $model->loadDbData($id);
+        $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post())) {
-            if ($user = $model->update($id)) {
-                if (Yii::$app->getUser()->login($user)) {
-                    return $this->redirect(["emp/index"]);
-                }
-            }
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('update', [
@@ -108,7 +97,7 @@ class EmpController extends BaseController
     }
 
     /**
-     * Deletes an existing Emp model.
+     * Deletes an existing Supplier model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -122,15 +111,15 @@ class EmpController extends BaseController
     }
 
     /**
-     * Finds the Emp model based on its primary key value.
+     * Finds the Supplier model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Emp the loaded model
+     * @return Supplier the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Emp::findOne($id)) !== null) {
+        if (($model = Supplier::findOne($id)) !== null) {
             return $model;
         }
 

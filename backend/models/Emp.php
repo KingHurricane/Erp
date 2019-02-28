@@ -188,6 +188,32 @@ class Emp extends ActiveRecord implements IdentityInterface
         $this->password_reset_token = null;
     }
 
+    public static function getAuthKeyByEmpID($id){
+           $temp = static::find()->with("role.privilege")->where(["id" => $id])->asArray()->all();
+           $authKey_temp = [];
+           foreach($temp as $key => $value){
+               foreach($value['role'] as $key => $value){
+                   foreach($value['privilege'] as $key => $value){
+                       $authKey_array = explode(',', $value['key']);
+                       foreach($authKey_array as $key => $value){
+                           $authKey_temp[] = explode('_',$value)[0];
+                       }
+                   }
+               }
+           }
+
+           return $authKey_temp;
+    }
+
+    public function getRole(){
+        return $this->hasMany(Role::className(), ['id' => 'role_id'])
+            ->via('empRole');
+    }
+
+    public function getEmpRole(){
+        return $this->hasMany(EmpRole::className(), ["emp_id" => 'id']);
+    }
+
     public function attributeLabels()
     {
         return [

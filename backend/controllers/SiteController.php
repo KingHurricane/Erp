@@ -1,6 +1,8 @@
 <?php
 namespace backend\controllers;
 
+use backend\models\Emp;
+use backend\models\Menu;
 use Yii;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
@@ -10,7 +12,7 @@ use backend\models\SignupForm;
 /**
  * Site controller
  */
-class SiteController extends Controller
+class SiteController extends BaseController
 {
     /**
      * {@inheritdoc}
@@ -49,7 +51,13 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->renderPartial('index');
+
+        return $this->renderPartial('index',[
+                'menu' =>  Menu::getAuthorizationMenu(Emp::getAuthKeyByEmpID(Yii::$app->user->id)),
+                'csrfParam' => Yii::$app->request->csrfParam,
+                'csrfToken' => Yii::$app->request->csrfToken,
+                ]
+        );
     }
 
 

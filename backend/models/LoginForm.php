@@ -24,7 +24,7 @@ class LoginForm extends Model
     {
         return [
             // username, captcha and password are both required
-            [['username', 'password', 'captcha'], 'required', 'message' => '必填项'],
+            [['username', 'password', 'verificationCode'], 'required', 'message' => '必填项'],
             //vilidate captcha
             ['verificationCode', 'captcha', 'message' => '验证码错误'],
             // rememberMe must be a boolean value

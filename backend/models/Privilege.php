@@ -139,7 +139,6 @@ class Privilege extends \yii\db\ActiveRecord
         }
 
         return [];
-
     }
 
     public static function getAuthCodeIDsByPrivilegeID($id){

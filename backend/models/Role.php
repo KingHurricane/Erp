@@ -96,6 +96,15 @@ class Role extends \yii\db\ActiveRecord
         return ArrayHelper::map($role, 'id', 'name');
     }
 
+    public function getPrivilege(){
+        return $this->hasMany(Privilege::className(), ["id" => "privilege_id"])
+            ->via("rolePrivilege");
+    }
+
+    public function getRolePrivilege(){
+        return $this->hasMany(RolePrivilege::className(), ["role_id" => "id"]);
+    }
+
 
     /**
      * {@inheritdoc}

@@ -14,7 +14,7 @@ use yii\filters\VerbFilter;
 /**
  * PrivilegeController implements the CRUD actions for Privilege model.
  */
-class PrivilegeController extends Controller
+class PrivilegeController extends BaseController
 {
     /**
      * {@inheritdoc}
@@ -89,6 +89,7 @@ class PrivilegeController extends Controller
      */
     public function actionUpdate($id)
     {
+
         $model = $this->findModel($id);
         $temp = Yii::$app->request->post();
 
@@ -101,7 +102,7 @@ class PrivilegeController extends Controller
                 return $this->redirect(['view', 'id' => $model->id]);
             }
         }
-
+//        var_dump(implode(',',Privilege::getAuthCodeIDsByPrivilegeID($model->id)));exit();
         return $this->render('update', [
             'model' => $model,
             'controller_methods' => Controller_method::listMap(),
